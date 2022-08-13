@@ -5,7 +5,18 @@
 	<input type="button" value="run" onclick="send()"/>
 </form>
 
-<script type="text/javascript" src="test.js">
+<script>	
+	function send() {
+	var cmd = document.getElementById("cmd").value;
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("d1").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "http://35.154.75.150:3000/comman?cmd=" + cmd);
+  xhttp.send();
+}
+	
 	//function send()
 	//{
 	//	command=document.getElementById("cmd").value;

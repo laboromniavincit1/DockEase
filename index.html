@@ -31,6 +31,18 @@ function livecmd() {
   xhttp.send();
 }
 
+function del() {
+		var del = document.getElementById("cdname").value;
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("del").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "http://35.154.75.150:3000/del?cdname=" + del);
+  xhttp.send();
+}
+
 </script>
 <h1> Launch Conatiner </h1>
 	Name <input name="cname" id="cname"/>
@@ -46,5 +58,8 @@ function livecmd() {
 	<button onclick="cps()"> Refresh </button>
 	<button onclick="cps()">Click to show </button>
         <div id ="cps" >This is my container list </div>
+	Coantainer Name<input id="cdname" name="cdname"/></br>
+	<div id="del"></div>
+	<button onclick="del()"> Stop container</button></br>
 	<button onclick="livecmd()" > Launch terminal </button>
 	<div id="livecmd"> </button>
