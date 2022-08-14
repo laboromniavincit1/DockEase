@@ -9,7 +9,7 @@
     document.getElementById("crun").innerHTML =
     this.responseText;
   }
-  xhttp.open("GET", "http://localhost:3000/run?cname=" + cn + "&cimage=" +  ci);
+  xhttp.open("GET", "http://13.232.45.35:3000/run?cname=" + cn + "&cimage=" +  ci);
   xhttp.send();
 }
 
@@ -19,7 +19,7 @@ function cps() {
     document.getElementById("cps").innerHTML =
     this.responseText;
   }
-  xhttp.open("GET", "http://localhost:3000/ps");
+  xhttp.open("GET", "http://13.232.45.35:3000/ps");
   xhttp.send();
 }
 
@@ -41,7 +41,7 @@ function del() {
     document.getElementById("del").innerHTML =
     this.responseText;
   }
-  xhttp.open("GET", "http://localhost:3000/del?cdname=" + del);
+  xhttp.open("GET", "http://13.232.45.35:3000/del?cdname=" + del);
   xhttp.send();
 }
 
@@ -58,7 +58,7 @@ function send() {
     document.getElementById("d1").innerHTML =
     this.responseText;
   }
-  xhttp.open("GET", "http://localhost:3000/comman?cmd=" + cmd);
+  xhttp.open("GET", "http://13.232.45.35:3000/comman?cmd=" + cmd);
   xhttp.send();
 }
 
