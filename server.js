@@ -3,14 +3,14 @@ const { exec } = require("child_process")
 const app = express()
 
 app.get("/runform" , (req, res) =>  {
-	res.sendFile(__dirname + "/index.html");
+	res.sendFile(__dirname + "/m2.html");
 })
 app.get("/run" , (req, res) => {
 	//res.sendFile(__dirname + "/livecmd.html")
 	const cname = req.query.cname;
 	const cimage = req.query.cimage;
 	
-	exec('sudo docker run -dit --name ' +  cname + " " +cimage ,  (err, stdout, stderr) => {
+	exec('docker run -dit --name ' +  cname + " " +cimage ,  (err, stdout, stderr) => {
 		res.send(stdout);
 })
 })
@@ -25,7 +25,7 @@ app.get("/comman", (req, res) => {
 })
 
 app.get("/ps",  (req, res) => {
-	exec("sudo docker ps | tail -n +2 ", (err, stdout, stderr) => {
+	exec("docker ps | tail -n +2 ", (err, stdout, stderr) => {
 
 		res.send("<pre>" + stdout + "</pre>");
 	});
@@ -33,7 +33,7 @@ app.get("/ps",  (req, res) => {
 
 app.get("/del", (req, res) => {
 	const del = req.query.cdname;
-	exec("sudo docker stop " + del, (err, stdout, stderr) => {
+	exec("docker stop " + del, (err, stdout, stderr) => {
 		res.send(stdout);
 	});
 })
