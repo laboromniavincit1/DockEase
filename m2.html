@@ -62,6 +62,47 @@ function send() {
   xhttp.send();
 }
 
+function deleteall() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("deleteall").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "http://13.232.45.35:3000/deleteall");
+  xhttp.send();
+}
+
+function cpullos() {
+        var cpullos = document.getElementById("cpullos").value;
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("cpullosoutput").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "http://13.232.45.35:3000/cpullos?cpullos=" + cpullos);
+  xhttp.send();
+}
+
+function allpulledimages() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("allpulledimages").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "http://13.232.45.35:3000/allpulledimages");
+  xhttp.send();
+}
+
+function cidelete() {
+        var cidelete = document.getElementById("cidelete").value;
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("cido").innerHTML =
+    this.responseText;
+  }
+  xhttp.open("GET", "http://13.232.45.35:3000/cidelete?cidelete=" + cidelete);
+  xhttp.send();
+}
 
 </script>
 
@@ -142,10 +183,8 @@ background-color:black;
 <div class="d2">
   Name <input name="cname" id="cname"/><br/>
 	Image Name
-	  <select name="cimage" id="cimage">
-		    <option> centos </option>
-		    <option> ubuntu </option>
-    </select><br/>
+	  <input name="cimage" id="cimage"/>
+    <br/>
   Click here to launch <button onclick="run()"  id="b1"   > Click Here</button>
   <div id="crun"> </div>
 </div>
@@ -180,8 +219,20 @@ background-color:black;
 	  <button onclick="del()"> Stop container</button></br>
     <div id="del"></div>
 </div>
-  
+<button onclick="deleteall()">Delete All</button></br>
+<div id="deleteall"></div>
+
+Image Name:<input id="cpullos" name="cpullos"/> 
+<button onclick="cpullos()">Pull</button></br>
+<div id="cpullosoutput"></div>
+
+<button onclick="allpulledimages()">Show All Pulled Images </button>
+<pre><div id="allpulledimages"> </div></pre>
 </body>
+
+Image Name :<input id="cidelete" name="cidelete"/>
+<button onclick="cidelete()">Delete Image</button>
+<div id="cido"></div>
 
 
   </html>

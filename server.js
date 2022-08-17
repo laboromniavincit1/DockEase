@@ -37,5 +37,27 @@ app.get("/del", (req, res) => {
 		res.send(stdout);
 	});
 })
+app.get("/deleteall", (req, res) => {
+	exec("docker rm -f $(docker ps -a -q)", (err, stdout, stderr) => {
+		res.send(stdout);
+	})
+})
+app.get("/cpullos", (req, res) => {
+	const cpullos = req.query.cpullos;
+	exec("docker pull " + cpullos, (err,stdout,stderr) => {
+		res.send(stdout);
+	})
+})
+app.get("/allpulledimages", (req, res) => {
+        exec("docker images", (err, stdout, stderr) => {
+                res.send(stdout);
+	})
+})
 
+app.get("/cidelete", (req, res) => {
+        const cidelete  = req.query.cidelete;
+        exec("docker rmi -f " + cidelete, (err,stdout,stderr) => {
+                res.send(stdout);
+        })
+})
 app.listen (3000, () => {console.log("conatiner started ")})
