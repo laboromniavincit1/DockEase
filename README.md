@@ -11,7 +11,7 @@ DOCKEASE is a single-page web application that simplifies Docker container manag
 1. Clone the repository:
 
 ```bash
-https://github.com/laboromniavincit1/DockEase.git
+git clone https://github.com/laboromniavincit1/DockEase.git
 ```
 2. Change the Directory
 ```bash
